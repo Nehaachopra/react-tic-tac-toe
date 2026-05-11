@@ -12,6 +12,7 @@ export interface SquareObj {
   state: '' | 'x' | 'o'
 }
 
+// State types
 interface GameContextType {
   isMultiPlayer: boolean;
   setIsMultiPlayer: Dispatch<SetStateAction<boolean>>;
@@ -25,17 +26,19 @@ interface GameContextType {
   winner: PlayersObj | null;
   setWinner: Dispatch<SetStateAction<PlayersObj | null>>;
 
-  squares: SquareObj[] | null;
-  setSquares: Dispatch<SetStateAction<SquareObj[] | null>>;
+  squares: SquareObj[];
+  setSquares: Dispatch<SetStateAction<SquareObj[]>>;
 
   resetPlayers: () => void;
   resetSquares: () => void;
 }
 
+// Children types
 interface GameContextProviderProps {
   children: ReactNode;
 }
 
+// creates array of 9 squares each containing id and state
 const createSquares = (): SquareObj[] => {
   return Array.from({ length: 9 }, (_, index) => ({
     id: index,
@@ -43,6 +46,7 @@ const createSquares = (): SquareObj[] => {
   }));
 };
 
+//creates an array of 2 players each containing id, prop and score.
 const createPlayers = (): PlayersObj[] => {
     return Array.from({ length: 2 }, (_, index) => ({
       id: index,
@@ -51,8 +55,10 @@ const createPlayers = (): PlayersObj[] => {
     }));
   };
 
+//create context
 const GameContext = createContext<GameContextType | null>(null);
 
+// create context provider
 export function GameContextProvider ({children}: GameContextProviderProps) {
   const [isMultiPlayer, setIsMultiPlayer] = useState<boolean>(false);
   const [squares, setSquares] = useState<SquareObj[]>(createSquares());
@@ -76,6 +82,7 @@ export function GameContextProvider ({children}: GameContextProviderProps) {
 
 }
 
+// create useGameContent that would provide props of provider
 export const useGameContext = () => {
   const context = useContext(GameContext);
 

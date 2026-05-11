@@ -9,6 +9,7 @@ export default function MultiPlayerToggleButton() {
   <div className="flex items-center justify-center">
     <button
       onClick={() => {
+        // reset board and players before switching mode
         resetPlayers();
         resetSquares();
         setIsMultiPlayer(!isMultiPlayer);

@@ -19,14 +19,17 @@ function findBestMove(
   symbol: "x" | "o"
 ) {
   for (const pattern of WINNING_PATTERNS) {
+    // extract existing value in squares in pattern
     const values = pattern.map(
       (index) => board[index].state
     );
 
+    // extract the number of fillled positions of user
     const matching = values.filter(
       (value) => value === symbol
     ).length;
 
+    //extract all the empty square in the pattern
     const emptyIndex = values.findIndex(
       (value) => value === ""
     );
@@ -52,14 +55,18 @@ export default function Squares() {
     };
     setSquares(updated);
 
+    //extract all the positions filled by current pllayer
     const places: number[] = [];
     updated.forEach(one => one.state === state && places.push(one.id));
 
+    // see if the positions has the winning pattern or not
     const hasWon = WINNING_PATTERNS.some((pattern) =>
       pattern.every((position) =>
         places.includes(position)
       )
     );
+
+    // if found winning pattern, declare the winner and reset board.
     if (hasWon) {
     setPlayers((prev: PlayersObj[]) => prev.map((person) => {
       if (person.id === currentPlayer) {
@@ -74,7 +81,11 @@ export default function Squares() {
     setCurrentPlayer(0);
     return;
     }
+
+    //else set currentPlayer to the next player
     setCurrentPlayer((prev: number) => prev === 0 ? 1 : 0);
+    
+    //if pllaying against computer, then hellp it make right move and set current player.
     if (!isMultiPlayer) {
       const computerState = state === "x" ? "o" : "x";
       let winningMove = false;
@@ -87,6 +98,7 @@ export default function Squares() {
         move = findBestMove(updated, state);
       }
 
+      // mark if found winning move
       else {
         winningMove = true;
       }
@@ -108,8 +120,11 @@ export default function Squares() {
         move = random.id;
       }
 
+      // update square with computer's move
       updated[move].state = computerState;
       setSquares([...updated]);
+      
+      // if winning move, declare winner and reset board
       if (winningMove) {
         setPlayers((prev: PlayersObj[]) => prev.map((person) => {
           if (person.prop === computerState) {
@@ -123,6 +138,8 @@ export default function Squares() {
         resetSquares();
         setCurrentPlayer(0);
       }
+
+      //else set current player
       else {
         setCurrentPlayer((prev: number) => prev === 0 ? 1 : 0);
       }

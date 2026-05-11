@@ -7,6 +7,7 @@ import { useGameContext } from "../contexts/ticTacToe.context";
 export default function Todo() {
   const { players, winner, setWinner, currentPlayer, isMultiPlayer } = useGameContext();
 
+  // after 3.5 seconds, reset winner to null!
   useEffect(() => {
     if (!winner) return;
 

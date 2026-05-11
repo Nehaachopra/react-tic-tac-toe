@@ -1,36 +1,108 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎮 Tic Tac Toe
 
-## Getting Started
+A modern and responsive Tic Tac Toe game built using Next.js, React, TypeScript, and Tailwind CSS.
 
-First, run the development server:
+<div
+  style="
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  "
+>
+  <img
+    src="preview/home.png"
+    alt="Home"
+    width="100%"
+  />
+
+  <img
+    src="preview/vsComputer.png"
+    alt="Single Player"
+    width="100%"
+  />
+
+  <img
+    src="preview/vsPlayer.png"
+    alt="Multiplayer"
+    width="100%"
+  />
+
+  <img
+    src="preview/winning.png"
+    alt="Winner UI"
+    width="100%"
+  />
+</div>
+
+
+The project supports:
+- 👥 Multiplayer mode
+- 🤖 Single player mode against computer
+- 🏆 Winner celebration UI
+- ⚡ Responsive modern UI
+- 🎨 Animated game interactions
+- 🧠 Smart move detection logic
+
+
+
+# ✨ Features
+
+## 🎯 Gameplay
+- Classic 3x3 Tic Tac Toe board
+- Turn-based gameplay
+- Automatic winner detection
+- Score tracking system
+- Active player highlighting
+- Board reset after winner announcement
+
+
+
+## 👤 Multiplayer Mode
+Play locally with 2 players on the same device.
+
+
+
+## 🤖 Computer Mode
+Play against a simple computer opponent.
+
+Current computer strategy:
+- Winning move detection
+- Blocking opponent moves
+- Center prioritization
+- Random fallback moves
+
+
+
+## 🎨 UI Features
+- Fully responsive layout
+- Dark modern gaming aesthetic
+- Animated winner modal
+- Smooth hover transitions
+- Glassmorphism-inspired cards
+- Dynamic player indicators
+
+
+
+# 🛠️ Tech Stack
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+
+
+
+# 📂 Project Structure
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+app/
+│
+├── components/
+│   ├── Squares.tsx
+│   ├── MultiPlayerToggleButton.tsx
+│   └── Todo.tsx
+│
+├── contexts/
+│   └── ticTacToe.context.tsx
+│
+└── page.tsx
