@@ -2,38 +2,34 @@
 
 A modern and responsive Tic Tac Toe game built using Next.js, React, TypeScript, and Tailwind CSS.
 
-<div
-  style="
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-  "
->
-  <img
-    src="preview/home.png"
-    alt="Home"
-    width="100%"
-  />
-
-  <img
+<table>
+  <tr>
+    <td>
+      <img
+        src="preview/home.png"
+        alt="Home"
+      />
+    </td>
+    <td>
+      <img
     src="preview/vsComputer.png"
     alt="Single Player"
-    width="100%"
   />
-
-  <img
+    </td>
+  </tr>
+  <tr>
+    <td><img
     src="preview/vsPlayer.png"
     alt="Multiplayer"
     width="100%"
-  />
-
-  <img
+  /></td>
+    <td><img
     src="preview/winning.png"
     alt="Winner UI"
     width="100%"
-  />
-</div>
-
+  /></td>
+  </tr>
+  </table>
 
 The project supports:
 - 👥 Multiplayer mode
